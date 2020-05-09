@@ -1,4 +1,5 @@
 #!/bin/bash
+#source = /root/scripts/dns_set.sh
 nic=`ip -o -4 route show to default | awk '{print $5}'`
 if [ -z "$nic" ];
 then
@@ -24,8 +25,7 @@ else
 			echo "....................."
 			sleep 2
 			echo "Setting DNS....."
-			source = /root/scripts/dns_set.sh
-			./dns_set.sh
+			/bin/bash /root/scripts/dns_set.sh
 			echo "OPERATION SUCCESSFUL"
 		   break;;
 	   [nN]* ) exit;;
